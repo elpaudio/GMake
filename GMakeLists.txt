@@ -5,4 +5,4 @@ set_game_title(name)
 include_game("gmake.gm82",name+"\GMake.exe")
 include_dir(project_dir+"bin\",project_dir+name+"\bin\")
 
-set_include_zip(true)
+set_include_zip(true,project_dir+name+'\GMake.zip')
