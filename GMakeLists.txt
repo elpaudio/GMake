@@ -2,6 +2,7 @@ name="GMake"
 project_dir="."
 
 set_game_title(name)
+include_game("gmake.gm82","GMake.exe")
 include_game("gmake.gm82",name+"\GMake.exe")
 include_dir(project_dir+"bin\",project_dir+name+"\bin\")
 

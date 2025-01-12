@@ -7,6 +7,15 @@ applies_to=self
 mydir=program_directory
 if debug_mode mydir=working_directory
 
+gmakerdir=directory_appdata+'\Roaming\GameMaker8.2\GameMaker.exe'
+if !file_exists(mydir+'\gmaker.txt') {show_message("I don't know where is your GameMaker located. Where is it located?") gmakerdir=get_open_filename('GameMaker Executable|*.exe','GameMaker.exe') file_text_write_all(mydir+'\gmaker.txt',gmakerdir)}
+else {var g;g=file_text_open_read(mydir+'\gmaker.txt') gmakerdir=file_text_read_string(g) file_text_close(g)}
+if !file_exists(gmakerdir) {
+show_message('No GameMaker installed at AppData\Roaming dir! Please set the new GameMaker directory.')
+gmakerdir=get_open_filename('GameMaker Executable|*.exe','GameMaker.exe')
+}
+if gmakerdir='' or !file_exists(mydir+'\gmaker.txt') {show_error("Sorry, but i didn't find GameMaker executable. Please change 'gmakerdir.txt' file in GMake directory to change GameMaker directory.",1) game_end() exit}
+
 message_size(640,240)
 
 argc=parameter_count()
