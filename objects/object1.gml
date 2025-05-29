@@ -14,7 +14,7 @@ gmakerdir=get_open_filename('GameMaker Executable|*.exe','GameMaker.exe')
 }
 if !file_exists(mydir+'\gmaker.txt') {show_message("I don't know where is your GameMaker located. Where is it located?") gmakerdir=get_open_filename('GameMaker Executable|*.exe','GameMaker.exe') file_text_write_all(mydir+'\gmaker.txt',gmakerdir)}
 else {var g;g=file_text_open_read(mydir+'\gmaker.txt') gmakerdir=file_text_read_string(g) file_text_close(g)}
-if gmakerdir='' or !file_exists(mydir+'\gmaker.txt') {show_error("Sorry, but i didn't find GameMaker executable. Please change 'gmakerdir.txt' file in GMake directory to change GameMaker directory.",1) game_end() exit}
+if gmakerdir='' or !file_exists(gmakerdir) {show_error("Sorry, but i didn't find GameMaker executable. Please change 'gmakerdir.txt' file in GMake directory to change GameMaker directory.",1) game_end() exit}
 
 message_size(640,240)
 
